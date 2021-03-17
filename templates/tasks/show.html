@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="/tasks" class="site_link">Back to tasks</a>
 <article>
     <p>Task description: {{ task.description }}</p>
     <p>Task user: {{ task.user.first_name }} {{task.user.last_name }}</p>
     <p>Task duration: {{ task.duration }} mins</p>
     <p>Task completed? {{ task.completed }}</p>
-    <a href="/tasks" class="go_back">Back to tasks</a>
-    <a href="/tasks/{{task.id}}/edit" class="go_back">Edit task details</a>
-    <form action="/tasks/{{task.id}}/delete" method="POST">
-        <input type="submit" name="delete" id="delete" value="Delete task">
-    </form>
 </article>
+
+    <a href="/tasks/{{task.id}}/edit" class="site_link">Edit task details</a>
+    <form action="/tasks/{{task.id}}/delete" method="POST">
+        <input type="submit" name="delete" id="delete" value="Delete task" class="delete_button">
+    </form>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<a href="/tasks/new" class="go_back">Add a new task</a>
 <h1>Tasks:</h1>
+<a href="/tasks/new" class="site_link">Add a new task</a>
 {% for task in all_tasks %}
 <a href="/tasks/{{task.id}}">
   <div class="task">
@@ -20,6 +19,9 @@
           <i class="fa fa-times fa-2x" aria-hidden="true"></i>
         {% endif %}
       </div>
+    </div>
+    <div class="click">
+      <p>Click for more info</p>
     </div>
   </div>
 </a>
