@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<article>
+    <p>Task description: {{ task.description }}</p>
+    <p>Task user: {{ task.user.first_name }} {{task.user.last_name }}</p>
+    <p>Task duration: {{ task.duration }} mins</p>
+    <p>Task completed? {{ task.completed }}</p>
+    <a href="/tasks" class="go_back">Back to tasks</a>
+    <a href="/tasks/{{task.id}}/edit" class="go_back">Edit task details</a>
+    <form action="/tasks/{{task.id}}/delete" method="POST">
+        <input type="submit" name="delete" id="delete" value="Delete task">
+    </form>
+</article>
+{% endblock %}

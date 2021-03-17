@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="/tasks/new" class="go_back">Add a new task</a>
+<h1>Tasks:</h1>
+{% for task in all_tasks %}
+<a href="/tasks/{{task.id}}">
+  <div class="task">
+    <div class="content">
+      {{task.user.first_name}}
+      <div class="description">
+        {{task.description}}
+        <span class="duration">{{task.duration}} mins</span>
+      </div>
+      <div class="buttons">
+        {% if task.completed == True %}
+          <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+        {% else %}
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</a>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="/tasks" class="go_back">Back to tasks</a>
+
+<form action="/tasks" method="POST">
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" placeholder="Enter task description">
+    <!-- User -->
+    <label for="user">User:</label>
+    <select name="user" id="user">
+        <option selected="true" disabled="disabled">Select user</option>
+        {% for user in all_users %}
+        <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+        {% endfor %}
+    </select>
+    <!-- Duration -->
+    <label for="duration">Duration (mins):</label>
+    <input type="number" id="duration" name="duration" placeholder="How long will the task take?">
+    <!-- Completed -->
+    <label for="completed">Is the task completed?</label>
+    <select name="completed" id="completed">
+        <option selected="true" disabled="disabled">Select option</option>
+        <option value="true">Completed</option>
+        <option value="false">Not completed</option>
+    </select>
+    <!-- Input to submit form -->
+    <input type="submit" value="Add task">
+</form>
+
+{% endblock %}
